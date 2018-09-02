@@ -1,5 +1,5 @@
 {
-    "name": "fileShortcutToknsi",
+    "name": "vscodeFileShortcut",
     "galleryBanner": {
         "color": "#000",
         "theme": "dark"
@@ -14,7 +14,7 @@
     "displayName": "fileShortcut",
     "description": "file shortcut extension",
     "version": "0.0.1",
-    "publisher": "fileShortcutToknsi",
+    "publisher": "vscodeFileShortcut",
     "engines": {
         "vscode": "^1.26.0"
     },
