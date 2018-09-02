@@ -11,7 +11,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.copyFileMarkdownLink"
+        "onCommand:extension.copyFileMarkdownLink",
+        "onCommand:extension.copyLineLog"
     ],
     "main": "./extension",
     "contributes": {
@@ -19,6 +20,10 @@
             {
                 "command": "extension.copyFileMarkdownLink",
                 "title": "copyFileMarkdownLink"
+            },
+            {
+                "command": "extension.copyLineLog",
+                "title": "copyLineLog"
             }
         ]
     },
@@ -34,6 +39,7 @@
         "@types/mocha": "^2.2.42"
     },
     "dependencies": {
-        "copy-paste": "^1.3.0"
+        "copy-paste": "^1.3.0",
+        "date-utils": "^1.2.21"
     }
 }

@@ -16,12 +16,12 @@ function activate(context) {
     const fileshortcut = new fileShortcut();
     let disposable = vscode.commands.registerCommand('extension.copyFileMarkdownLink', function () {
         fileshortcut.copyCurrentFileMarkdownLink();
-        // The code you place here will be executed every time your command is executed
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
     });
-
+    let copyLineLog = vscode.commands.registerCommand('extension.copyLineLog', function () {
+        fileshortcut.copyLineLog();
+    });
     context.subscriptions.push(disposable);
+    context.subscriptions.push(copyLineLog);
 }
 exports.activate = activate;
 
