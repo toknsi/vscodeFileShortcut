@@ -1,5 +1,16 @@
 {
     "name": "fileshortcut",
+    "galleryBanner": {
+        "color": "#000",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/toknsi/vscodeFileShortcut"
+    },
+    "bugs": {
+        "url": "https://github.com/toknsi/vscodeFileShortcut/issues"
+    },
     "displayName": "fileShortcut",
     "description": "file shortcut extension",
     "version": "0.0.1",
