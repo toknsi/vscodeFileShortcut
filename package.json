@@ -11,6 +11,7 @@
         "Other"
     ],
     "activationEvents": [
+        "onCommand:extension.sendLineLog",
         "onCommand:extension.copyFileMarkdownLink",
         "onCommand:extension.copyLineLog"
     ],
@@ -24,6 +25,10 @@
             {
                 "command": "extension.copyLineLog",
                 "title": "copyLineLog"
+            },
+            {
+                "command": "extension.sendLineLog",
+                "title": "sendLineLog"
             }
         ]
     },

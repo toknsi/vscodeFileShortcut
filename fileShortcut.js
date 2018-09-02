@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const ncp = require("copy-paste");
+const fs = require('fs');
 
 module.exports = class FileShortcut {
     constructor() {
@@ -49,9 +50,27 @@ module.exports = class FileShortcut {
             vscode.window.showWarningMessage('active editor undefind');
             return;
         }
-        let docContent = editor.document.getText();
-        console.log(docContent);
-        console.log(editor.document.lineAt(1).text);
-        vscode.window.showInformationMessage('copyCurrentFileMarkdownLine');
+        let position = editor.selection.active.line;
+        if (editor.document.lineAt(position).text != '') {
+            let currentFileName = editor.document.fileName;
+            let logFile = '';
+            if (currentFileName.lastIndexOf('.') != -1) {
+                logFile = `${currentFileName.substr(0, currentFileName.lastIndexOf('.'))}_.log`;
+            } else {
+                logFile = `${currentFileName}_.log`;
+            }
+            console.log(logFile);
+            let log = `[${new Date().toString()}] ${editor.document.lineAt(position).text}` + "\n";
+            console.log(log);
+            fs.appendFile(logFile, log, err => {
+                vscode.window.showErrorMessage(`err ${err.name + ': ' + err.message}`);
+            });
+            editor.edit(editor => {
+                let range = new vscode.Range(new vscode.Position(position, 0), new vscode.Position(position + 1, 0))
+                editor.delete(range);
+            });
+        } else {
+            return;
+        }
     }
 }

@@ -20,6 +20,10 @@ function activate(context) {
     let copyLineLog = vscode.commands.registerCommand('extension.copyLineLog', function () {
         fileshortcut.copyLineLog();
     });
+    let sendLineLog = vscode.commands.registerCommand('extension.sendLineLog', function () {
+        fileshortcut.sendLineLog();
+    });
+    context.subscriptions.push(sendLineLog);
     context.subscriptions.push(disposable);
     context.subscriptions.push(copyLineLog);
 }
